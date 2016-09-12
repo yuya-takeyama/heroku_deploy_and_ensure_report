@@ -13,7 +13,7 @@ Usage
 
 ```sell
 . ./heroku_deploy_and_ensure_report.sh
-heroku_deploy_and_ensure_report || error
+heroku_deploy_and_ensure_report 'git push heroku master' || error
 ```
 
 ---
