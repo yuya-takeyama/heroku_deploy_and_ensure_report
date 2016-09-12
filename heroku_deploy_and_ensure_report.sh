@@ -3,8 +3,7 @@ heroku_deploy_and_ensure_report() {
   local report=`$deploy_command`
   local result=$?
 
-  echo "$report" | ggrep -P 'remote: Verifying deploy\.+?done|Everything up-to-date' >/dev/null
-  if [ $? -ne 0 ]; then
+  if ! echo "$report" | grep -sqP 'remote: Verifying deploy\.+?done|Everything up-to-date'; then
     result=1
   fi
 
